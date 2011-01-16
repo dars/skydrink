@@ -1,0 +1,182 @@
+body{
+	background-color: #FFF;
+	margin: 0px;
+	font-family: Lucida Grande, Verdana, Sans-serif;
+	font-size: 14px;
+	color: #4F5155;
+}
+a{
+	color: #003399;
+	background-color: transparent;
+	font-weight: normal;
+	text-decoration:none;
+}
+a img{
+	border:none;
+}
+div#nav2{
+	height:43px;
+	background:url(../images/nav_bg_darker.png) repeat-x;
+	text-align:right;
+	padding-right:150px;
+}
+div#menu{
+	background:#5B373A url(../images/line01.png) bottom repeat-x;
+	color:#FFF;
+	padding:15px;
+}
+div#menu table{
+	width:800px;
+}
+div#menu .cate_tr{
+	letter-spacing: 5px;
+	padding:5px;
+	background:#7A494D;
+	font-size:16px;
+}
+div#menu a{
+	color:#DDD;
+}
+div.content{
+	padding-left:15px;
+	padding-right:15px;
+}
+input.num{
+	width:35px;
+	text-align:right;
+	border:1px #DADADA solid;
+	background:#EEE;
+	font-size: 16px;
+	color:#6D292E;
+	padding:2px 5px;
+}
+fieldset{
+	border:1px #EBD8D8 solid;
+	margin-left:30px;
+	padding:0 15px 15px;
+	margin-bottom:25px;
+}
+legend{
+	margin-left:10px;
+}
+form{
+/* 	border:1px #EEE solid; */
+	width:950px;
+	padding:0;
+}
+#chose_form{
+	width:890px;
+}
+#chose_form th{
+	font-weight: normal;
+	font-size: 12px;
+	letter-spacing:5px;
+	color:#666;
+	background:#FFECEC;
+	height:20px;
+}
+#chose_form_btn{
+	font-weight: normal;
+	font-size:12px;
+	color:#F00;
+}
+.hovertr{
+	background:#EEE;
+}
+#order_list_block{
+	width:400px;
+	float:left;
+	margin-right:10px;
+}
+#order_price{
+	text-align:right;
+	color:#963C3C;
+	padding-right:15px;
+}
+#order_total{
+	margin-left:10px;
+}
+.order_list_tb{
+	margin:0 auto;
+	width:380px;
+	border-collapse: collapse;
+}
+.order_list_tb th{
+	font-weight: normal;
+	letter-spacing: 5px;
+	color:#994D4D;
+	border-bottom:1px #FFBBBB solid;
+	background:#FFF5F5;
+}
+.order_list_tb td{
+	padding: 2px 5px;
+	border-bottom:1px #EEE dashed;
+}
+.prod_name{
+	font-size: 16px;
+	color:#663232;
+}
+.material{
+	font-size: 10px;
+	color:#333;
+	margin-left:5px;
+	font-style: italic;
+	font-family: Verdana;
+	font-weight: bold;
+}
+td.num{
+	text-align:right;
+	color:#AA3333;
+	width:50px;
+}
+.contact_tb th,.contact_tb td{
+	padding-left:5px;
+	padding-right:5px;
+	font-weight: normal;
+	font-size: 16px;
+}
+.contact_tb input{
+	border:1px #DADADA solid;
+	background:#EEE;
+	line-height: 23px;
+	width:200px;
+	font-size: 16px;
+	padding:2px 3px;
+	color:#333;
+}
+.contact_tb th{
+	text-align:right;
+	color:#854C4C;
+}
+#contact_block button#sub_btn{
+	margin:30px;
+	font-size: 14px;
+	padding:3px 10px;;
+}
+
+ul#icons {
+    margin: 0;
+    padding: 0;
+}
+
+ul#icons li {
+    margin: 2px;
+    position: relative;
+    padding: 4px 0;
+    cursor: pointer;
+    float: left;
+    list-style: none;
+}
+
+ul#icons span.ui-icon {
+    float: left;
+    margin: 0 4px;
+}
+.contact_tb td.ps{
+	text-align:right;
+	font-size: 10px;
+	color:#666;
+}
+.combo-arrow{
+	height:26px;
+}
