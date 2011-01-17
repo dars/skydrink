@@ -132,7 +132,7 @@ var prod_form = new Ext.form.FormPanel({
 					{boxLabel:'5分',name:'sugure3',value:3},
 					{boxLabel:'3分',name:'sugure4',value:4},
 					{boxLabel:'無糖',name:'sugure5',value:5},
-					{boxLabel:'固定甜度',name:'sugure6',value:6},
+					{boxLabel:'固定甜度',name:'sugure6',value:6}
 				]
 			},{
 				fieldLabel:'冰塊/熱',
@@ -145,7 +145,7 @@ var prod_form = new Ext.form.FormPanel({
 					{boxLabel:'去冰',name:'ice3',value:3},
 					{boxLabel:'溫',name:'ice4',value:4},
 					{boxLabel:'熱',name:'ice5',value:5},
-					{boxLabel:'固定冰塊',name:'ice6',value:6},
+					{boxLabel:'固定冰塊',name:'ice6',value:6}
 				]
 			},{
 				name:'id',
@@ -180,7 +180,7 @@ var prod_form = new Ext.form.FormPanel({
 				text:'刪除',
 				handler:function(){
 					var id = prod_form.getForm().findField('id').getValue();
-					if(id == ''){
+					if(id === ''){
 						Ext.Msg.alert('提醒','請選擇需要刪除的資料！');
 					}else{
 						Ext.Msg.confirm('提醒','確定刪除此筆資料？若已有相關訂單將會無法刪除',function(btn){

@@ -6,7 +6,7 @@ var size_render = function(v){
 	}else{
 		return '';
 	}
-}
+};
 var price_render = function(v){
 	if(v === '' || v===0){
 		return '';
@@ -14,7 +14,7 @@ var price_render = function(v){
 		tmp = '$'+v;
 		return tmp;
 	}
-}
+};
 var order_ds = new Ext.data.JsonStore({
 	proxy:new Ext.data.HttpProxy({url:'orders',method:'post'}),
 	totalProperty:'totalProperty',
@@ -102,14 +102,14 @@ var order_d_ds = new Ext.data.JsonStore({
 var order_d_cm = new Ext.grid.ColumnModel([
 	new Ext.grid.RowNumberer(),
 	{header:'飲料名稱',dataIndex:'pname'},
-	{header:'容量',dataIndex:'size_id',renderer:size_render},
+	{header:'容量',dataIndex:'size_id',align:'center',renderer:size_render},
 	{header:'糖分',dataIndex:'sname'},
 	{header:'冰塊/熱',dataIndex:'iname'},
 	{header:'加料1',dataIndex:'mname1'},
 	{header:'加料2',dataIndex:'mname2'},
-	{header:'數量',dataIndex:'num',align:'right',renderer:price_render},
+	{header:'數量',dataIndex:'num',align:'right'},
 	{header:'單價',dataIndex:'price',align:'right',renderer:price_render},
-	{header:'小計',dataIndex:'total',align:'right',renderer:price_render},
+	{header:'小計',dataIndex:'total',align:'right',renderer:price_render}
 ]);
 var order_d = new Ext.grid.GridPanel({
 	store:order_d_ds,
