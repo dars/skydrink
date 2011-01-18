@@ -1,3 +1,5 @@
+var loader = new Image();
+loader.src = "../public/images/ajax-loader.gif";
 var prod_ds = new Ext.data.JsonStore({
 	proxy:new Ext.data.HttpProxy({url:'products',method:'post'}),
 	totalProperty:'totalProperty',
@@ -23,7 +25,8 @@ var prod_ds = new Ext.data.JsonStore({
 		{name:'ice3',type:'string'},
 		{name:'ice4',type:'string'},
 		{name:'ice5',type:'string'},
-		{name:'ice6',type:'string'}
+		{name:'ice6',type:'string'},
+		{name:'img',type:'string'}
 	]
 });
 prod_ds.load({params:{limit:20,start:0}});
@@ -60,6 +63,16 @@ var products = new Ext.grid.GridPanel({
 products.on('rowdblclick',function(grid,rowIndex){
 	var record = grid.getStore().getAt(rowIndex);
 	prod_form.getForm().loadRecord(record);
+	prod_form.getForm().findField('img').setValue('');
+	Ext.get('prod_img').dom.src = Ext.BLANK_IMAGE_URL;
+	if(record.data.img){
+		Ext.get('prod_img').dom.src = loader.src;
+		tmp=new Image();
+		tmp.src='../public/files/images/'+record.data.img;
+		tmp.onload = function(){
+			Ext.get('prod_img').dom.src = tmp.src;
+		}
+	}
 });
 var cate_ds = new Ext.data.JsonStore({
 	proxy:new Ext.data.HttpProxy({method:'post',url:'cate_list'}),
@@ -147,6 +160,24 @@ var prod_form = new Ext.form.FormPanel({
 					{boxLabel:'熱',name:'ice5',value:5},
 					{boxLabel:'固定冰塊',name:'ice6',value:6}
 				]
+			},{
+				name:'img',
+				id:'img_txt',
+				xtype:'fileuploadfield',
+				fieldLabel:'圖片',
+				buttonText:'瀏覽'
+			},{
+	    		xtype:'box',
+	    		autoEl:{
+	    		    tag:'div',
+	    		    id:'img_dv', 
+	    		    align:'center',
+	    		    children:[{
+	    		    	id:'prod_img',
+	    		    	tag:'img',
+	    		    	src:Ext.BLANK_IMAGE_URL
+ 	    		    }]
+ 	    		}
 			},{
 				name:'id',
 				xtype:'hidden'

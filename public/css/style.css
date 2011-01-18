@@ -37,6 +37,12 @@ div#menu .cate_tr{
 div#menu a{
 	color:#DDD;
 }
+a.prod_img{
+	margin-left:3px;
+}
+a.prod_img img{
+	vertical-align: bottom;
+}
 div.content{
 	padding-left:15px;
 	padding-right:15px;

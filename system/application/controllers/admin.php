@@ -76,7 +76,30 @@ class Admin extends Controller{
 		echo json_encode($res);
 	}
 	function prod_save(){
+		$config['upload_path'] = 'public/files/images/';
+		$config['allowed_types'] = 'gif|jpg|jpeg|png|bmp';
+		$config['overwrite'] = false;
+		$config['encrypt_name'] = true;
+		$this->load->library('upload',$config);
+		$this->upload->initialize($config);
+		$img_name = "";
+		if($this->upload->do_upload('img')){
+			$data=$this->upload->data();
+			$config = array();
+			$config['image_library'] = 'gd2';
+			$config['source_image']	= $data['full_path'];
+			$config['create_thumb'] = FALSE;
+			$config['maintain_ratio'] = TRUE;
+			$config['width'] = 300;
+			$config['height'] = 300;
+			$this->load->library('image_lib',$config); 
+			$this->image_lib->initialize($config);
+			$this->image_lib->resize();
+			$img_name = $data['file_name'];
+		}
+		
 		$tmp = array();
+		$tmp['img'] = $img_name;
 		$tmp['t_id'] = $this->input->post('t_id');
 		$tmp['name'] = $this->input->post('name');
 		$tmp['m_price'] = $this->input->post('m_price');

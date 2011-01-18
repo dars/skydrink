@@ -6,9 +6,11 @@
 <title>貢茶網路下單系統 - 後端管理</title>
 <link rel="stylesheet" href="<?=site_url('public/resources/css/ext-all.css')?>" >
 <link rel="stylesheet" href="<?=site_url('public/css/Growl.css')?>" >
+<link rel="stylesheet" href="<?=site_url('public/css/fileuploadfield.css')?>" >
 <script src="<?=site_url('public/js/admin/ext-base.js')?>"></script>
 <script src="<?=site_url('public/js/admin/ext-all-debug.js')?>"></script>
 <script src="<?=site_url('public/js/admin/ext-lang-zh_TW.js')?>"></script>
+<script src="<?=site_url('public/js/admin/FileUploadField.js')?>"></script>
 <script src="<?=site_url('public/js/admin/orders.js')?>"></script>
 <script src="<?=site_url('public/js/admin/products.js')?>"></script>
 <script src="<?=site_url('public/js/admin/Growl.js')?>"></script>

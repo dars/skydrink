@@ -111,12 +111,71 @@ $(function(){
 	$('#toggle_menu').click(function(){
 		$('#menu').slideToggle('slow');
 	});
-	$('#menu a').click(function(obj){
+	$('#menu a.prod_item').click(function(obj){
+		set_form(this.rel);
 		$('#menu').slideUp('fast');
-		
 	});
 	
-	
+	function set_form(id){
+		var t = jprod.pgroup[id];
+		$('#cate_combo').val(t);
+		reset_size();
+		reset_ice();
+		reset_sugure();
+		reset_mate();
+		$('#num').val('');
+		$('#price').val('');
+		$('#total').val('');
+		var obj = jprod.data[jprod.index[t]];
+		var count = obj.data.length;
+		$('#prod_combo').html("");
+		var i = 0;
+		$('#prod_combo').get(0).add(new Option('飲料名稱',''),document.all?i:null);
+		while(i<count){
+			$('#prod_combo').get(0).add(new Option(obj.data[i].name,obj.data[i].id),document.all?i:null);
+			i++;
+		}
+		$('#prod_combo').val(id);
+
+		var obj = jprod.data[jprod.index[t]].data[jprod.data[jprod.index[t]].index[id]];
+
+		if(obj.m_price === null){
+			$('#size_combo option[value=m]').remove();
+		}
+		if(obj.l_price === null){
+			$('#size_combo option[value=l]').remove();
+		}
+		if(obj.sugure == '6'){
+			$('#sugure_combo').html("<option value=6>固定甜度</option>");
+		}else{
+			var tmp_ar=obj.sugure.split(',');
+			var i = ($('#sugure_combo option').length-1);
+			while(i>=0){
+				var tmp_val=$('#sugure_combo option').eq(i).val();
+				if(tmp_val != '' && $.inArray(tmp_val,tmp_ar) == -1){
+					$('#sugure_combo option[value='+tmp_val+']').remove();
+				}
+				i--;
+			}
+		}
+		if(obj.ice == '6'){
+			$('#ice_combo').html("<option value=6>固定冰塊</option>");
+		}else{
+			var tmp_ar=obj.ice.split(',');
+			var i = ($('#ice_combo option').length-1);
+			while(i>=0){
+				var tmp_val=$('#ice_combo option').eq(i).val();
+				if(tmp_val != '' && $.inArray(tmp_val,tmp_ar) == -1){
+					$('#ice_combo option[value='+tmp_val+']').remove();
+				}
+				i--;
+			}
+		}
+		$('#num').val(1);
+		count_chose_price();
+		
+	}
+		
 	$('.order_list_tb').colorize({
 		altColor:'#FAFAFA',
 		hoverColor:'#FFF5F5'

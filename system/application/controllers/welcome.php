@@ -27,11 +27,13 @@ class Welcome extends Controller {
 				$i=0;
 			}
 			$tmp2->index[$p->id]=$i;
+			$jprod->pgroup[$p->id]=$p->t_id;
 			$i++;
 			array_push($tmp2->data,$p);
 		endforeach;
 		array_push($jprod->data,$tmp2);
 		$res['jprod'] = json_encode($jprod);
+
 		/* 分類 */
 		$this->db->order_by('weight','DESC');
 		$query = $this->db->get('taxonomy');

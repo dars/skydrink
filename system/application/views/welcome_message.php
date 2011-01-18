@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="<?=site_url('public/css/themes/default/easyui.css')?>">
 <link rel="stylesheet" href="<?=site_url('public/css/themes/icon.css')?>">
 <link rel="stylesheet" href="<?=site_url('public/css/ui.notify.css')?>">
+<link rel="stylesheet" href="<?=site_url('public/css/jquery.fancybox-1.3.4.css')?>">
 <link rel="stylesheet" href="<?=site_url('public/css/style.css')?>">
 <script>
 var jprod = <?=$jprod?>;
@@ -21,6 +22,9 @@ var jprod = <?=$jprod?>;
 <script src="<?=site_url('public/js/jquery.validationEngine-zh_tw.js')?>"></script>
 <script src="<?=site_url('public/js/jquery.validationEngine.js')?>"></script>
 <script src="<?=site_url('public/js/jquery.notify.min.js')?>"></script>
+<script src="<?=site_url('public/js/jquery.easing-1.3.pack.js')?>"></script>
+<script src="<?=site_url('public/js/jquery.fancybox-1.3.4.pack.js')?>"></script>
+<script src="<?=site_url('public/js/jquery.mousewheel-3.0.4.pack.js')?>"></script>
 <script src="<?=site_url('public/js/script.js')?>"></script>
 <script>
 var free_limit=<?=$free_limit?>;
@@ -29,6 +33,7 @@ function create( template, vars, opts ){
 }
 $(function(){
 	<?=$this->session->flashdata('notify');?>
+	$('a.prod_img').fancybox();
 });
 </script>
 </head>
@@ -50,7 +55,11 @@ $(function(){
 			if($j%$num == 0){
 				echo "<tr>";
 			}
-			echo "<td><a href='javascript:void(0)' rel=".$p->id.">".$p->name."</a></td>";
+			echo "<td><a class=\"prod_item\" href='javascript:void(0)' rel=".$p->id.">".$p->name."</a>";
+			if(!empty($p->img)){
+				echo "<a class='prod_img' href='".site_url('public/files/images/'.$p->img)."'><img src='".site_url("public/images/img_icon.png")."'></a>";
+			}
+			echo "</td>";
 			$j++;
 			if($j%$num == 0){
 				echo "</tr>";
