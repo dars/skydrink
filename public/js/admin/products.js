@@ -192,6 +192,7 @@ var prod_form = new Ext.form.FormPanel({
 							success:function(fp,o){
 								show_Growl(1,'訊息','資料已儲存');
 								prod_form.getForm().reset();
+								Ext.get('prod_img').dom.src = Ext.BLANK_IMAGE_URL;
 								prod_ds.reload();
 							}
 						});
@@ -201,11 +202,13 @@ var prod_form = new Ext.form.FormPanel({
 				text:'取消',
 				handler:function(){
 					prod_form.getForm().reset();
+					Ext.get('prod_img').dom.src = Ext.BLANK_IMAGE_URL;
 				}
 			},{
 				text:'新增一筆',
 				handler:function(){
 					prod_form.getForm().reset();
+					Ext.get('prod_img').dom.src = Ext.BLANK_IMAGE_URL;
 				}
 			},{
 				text:'刪除',
@@ -222,6 +225,7 @@ var prod_form = new Ext.form.FormPanel({
 									success:function(){
 										show_Growl(1,'訊息','資料已刪除');
         	    						prod_form.getForm().reset();
+        	    						Ext.get('prod_img').dom.src = Ext.BLANK_IMAGE_URL;
 										prod_ds.reload();
 									}
 								});
