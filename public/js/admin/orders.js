@@ -16,7 +16,7 @@ var price_render = function(v){
 	}
 };
 var order_ds = new Ext.data.JsonStore({
-	proxy:new Ext.data.HttpProxy({url:'orders',method:'post'}),
+	proxy:new Ext.data.HttpProxy({url:base_url+'admin/orders',method:'post'}),
 	totalProperty:'totalProperty',
 	root:'root',
 	fields:[
@@ -77,7 +77,7 @@ orders.on('rowdblclick',function(){
 	order_win.show();
 });
 var order_d_ds = new Ext.data.JsonStore({
-	proxy:new Ext.data.HttpProxy({url:'order_d',method:'post'}),
+	proxy:new Ext.data.HttpProxy({url:base_url+'admin/order_d',method:'post'}),
 	root:'root',
 	fields:[
 		{name:'id',type:'int'},

@@ -22,7 +22,7 @@ Ext.onReady(function(){
 		layout:'border',
 		items:[{
 			region:'north',
-			html:'<h1><img src="../public/images/title.png"></h1>',
+			html:'<h1><img src="'+base_url+'public/images/title.png"></h1>',
 			height:67
 		},tp]
 	});

@@ -65,6 +65,7 @@ class Welcome extends Controller {
 		$mate2 = $this->input->post('mate_id2');
 		$price = $this->input->post('price');
 		$num = $this->input->post('num');
+		
 		/* order_m */
 		$tmp = array();
 		$tmp['name'] = $this->input->post('name');
@@ -80,6 +81,7 @@ class Welcome extends Controller {
 		$total = 0;
 		$i=0;
 		$count = count($prod);
+		
 		/* order_d */
 		while($i<$count){
 			$tmp=array();

@@ -1,7 +1,7 @@
 var loader = new Image();
-loader.src = "../public/images/ajax-loader.gif";
+loader.src = base_url+"public/images/ajax-loader.gif";
 var prod_ds = new Ext.data.JsonStore({
-	proxy:new Ext.data.HttpProxy({url:'products',method:'post'}),
+	proxy:new Ext.data.HttpProxy({url:base_url+'admin/products',method:'post'}),
 	totalProperty:'totalProperty',
 	root:'root',
 	fields:[
@@ -68,14 +68,14 @@ products.on('rowdblclick',function(grid,rowIndex){
 	if(record.data.img){
 		Ext.get('prod_img').dom.src = loader.src;
 		tmp=new Image();
-		tmp.src='../public/files/images/'+record.data.img;
+		tmp.src=base_url+'public/files/images/'+record.data.img;
 		tmp.onload = function(){
 			Ext.get('prod_img').dom.src = tmp.src;
 		}
 	}
 });
 var cate_ds = new Ext.data.JsonStore({
-	proxy:new Ext.data.HttpProxy({method:'post',url:'cate_list'}),
+	proxy:new Ext.data.HttpProxy({method:'post',url:base_url+'admin/cate_list'}),
 	root:'root',
 	fields:[
 		{name:'id'},
@@ -187,7 +187,7 @@ var prod_form = new Ext.form.FormPanel({
 				handler:function(){
 					if(prod_form.getForm().isValid()){
 						prod_form.getForm().submit({
-							url:'prod_save',
+							url:base_url+'admin/prod_save',
 							waitMsg:'資料儲存中...',
 							success:function(fp,o){
 								show_Growl(1,'訊息','資料已儲存');
@@ -220,7 +220,7 @@ var prod_form = new Ext.form.FormPanel({
 						Ext.Msg.confirm('提醒','確定刪除此筆資料？若已有相關訂單將會無法刪除',function(btn){
 							if(btn == 'yes'){
 								Ext.Ajax.request({
-									url:'prod_del',
+									url:base_url+'admin/prod_del',
 									params:{id:prod_form.getForm().findField('id').getValue()},
 									success:function(){
 										show_Growl(1,'訊息','資料已刪除');
